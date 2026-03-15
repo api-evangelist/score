@@ -1,0 +1,11 @@
+name: Score
+description: A framework for evaluating and scoring AI model outputs and responses
+url: https://github.com/openai/evals
+tags:
+- Evaluation
+- AI
+- Scoring
+created: '2025'
+modified: '2025'
+apis: []
+common: []
