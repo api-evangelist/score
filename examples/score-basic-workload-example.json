@@ -1,0 +1,103 @@
+{
+  "description": "Example Score specification for a basic web service workload",
+  "filename": "score.yaml",
+  "format": "yaml",
+  "content": {
+    "apiVersion": "score.dev/v1b1",
+    "metadata": {
+      "name": "hello-world-service",
+      "annotations": {
+        "team": "platform-engineering",
+        "environment": "production"
+      }
+    },
+    "containers": {
+      "web": {
+        "image": "nginx:1.25",
+        "command": [],
+        "args": [],
+        "variables": {
+          "APP_PORT": "8080",
+          "DATABASE_URL": "${resources.db.connection_string}",
+          "REDIS_URL": "${resources.cache.url}",
+          "LOG_LEVEL": "info"
+        },
+        "files": {
+          "/etc/nginx/conf.d/default.conf": {
+            "source": "./nginx.conf",
+            "mode": "0644"
+          }
+        },
+        "volumes": {
+          "/data": {
+            "source": "${resources.storage.path}",
+            "readOnly": false
+          }
+        },
+        "resources": {
+          "limits": {
+            "memory": "256Mi",
+            "cpu": "500m"
+          },
+          "requests": {
+            "memory": "128Mi",
+            "cpu": "250m"
+          }
+        },
+        "livenessProbe": {
+          "httpGet": {
+            "path": "/health",
+            "port": 8080
+          }
+        },
+        "readinessProbe": {
+          "httpGet": {
+            "path": "/ready",
+            "port": 8080
+          }
+        }
+      }
+    },
+    "service": {
+      "ports": {
+        "http": {
+          "port": 80,
+          "targetPort": 8080,
+          "protocol": "TCP"
+        },
+        "metrics": {
+          "port": 9090,
+          "targetPort": 9090,
+          "protocol": "TCP"
+        }
+      }
+    },
+    "resources": {
+      "db": {
+        "type": "postgres",
+        "class": "default",
+        "params": {
+          "extensions": ["uuid-ossp", "pg_trgm"]
+        }
+      },
+      "cache": {
+        "type": "redis",
+        "class": "small"
+      },
+      "storage": {
+        "type": "volume",
+        "params": {
+          "size": "10Gi"
+        }
+      }
+    }
+  },
+  "usage": {
+    "score-compose": "score-compose generate -f score.yaml -o compose.yml",
+    "score-k8s": "score-k8s generate -f score.yaml -o manifests/ --namespace app-namespace"
+  },
+  "platforms": {
+    "docker-compose": "Translates to Docker Compose service with environment variables and volume mounts",
+    "kubernetes": "Translates to Deployment, Service, ConfigMap, and PersistentVolumeClaim resources"
+  }
+}

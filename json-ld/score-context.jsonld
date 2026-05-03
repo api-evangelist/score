@@ -1,0 +1,65 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "score": "https://score.dev/ontology/",
+    "cncf": "https://www.cncf.io/ontology/",
+    "oci": "https://opencontainers.org/ontology/",
+
+    "WorkloadSpecification": "score:WorkloadSpecification",
+    "ScoreFile": "score:ScoreFile",
+    "ScoreImplementation": "score:Implementation",
+    "Container": "oci:Container",
+    "ContainerImage": "oci:Image",
+    "Service": "schema:SoftwareApplication",
+    "Resource": "score:Resource",
+    "ResourceProvisioner": "score:ResourceProvisioner",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "version": "schema:version",
+    "url": "schema:url",
+    "license": "schema:license",
+
+    "apiVersion": "score:apiVersion",
+    "workloadName": "schema:name",
+    "annotations": "schema:additionalProperty",
+
+    "container": "score:Container",
+    "containerImage": "oci:imageReference",
+    "command": "score:command",
+    "args": "score:args",
+    "variables": "score:environmentVariables",
+    "files": "score:mountedFiles",
+    "volumes": "score:volumes",
+    "resources": "score:resources",
+    "livenessProbe": "score:livenessProbe",
+    "readinessProbe": "score:readinessProbe",
+
+    "servicePort": "schema:port",
+    "protocol": "schema:protocol",
+    "targetPort": "score:targetPort",
+
+    "resourceType": "score:resourceType",
+    "resourceClass": "score:resourceClass",
+    "resourceId": "score:resourceId",
+    "resourceParams": "score:resourceParams",
+    "resourceOutput": "score:resourceOutput",
+
+    "platform": "score:TargetPlatform",
+    "dockerCompose": "score:DockerComposePlatform",
+    "kubernetes": "score:KubernetesPlatform",
+    "helmChart": "score:HelmPlatform",
+    "cloudRun": "score:CloudRunPlatform",
+
+    "scoreCompose": "score:ScoreComposeImplementation",
+    "scoreK8s": "score:ScoreK8sImplementation",
+    "scoreGo": "score:ScoreGoLibrary",
+
+    "cncfSandbox": "cncf:SandboxProject",
+    "openSource": "schema:isAccessibleForFree",
+    "githubOrg": {
+      "@id": "schema:codeRepository",
+      "@type": "@id"
+    }
+  }
+}

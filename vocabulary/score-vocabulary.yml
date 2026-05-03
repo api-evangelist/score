@@ -1,0 +1,164 @@
+vocabulary:
+  name: Score Specification Vocabulary
+  description: >-
+    Domain vocabulary for the Score workload specification project covering
+    platform engineering concepts, Score-specific terminology, CLI tools,
+    resource types, and cloud-native deployment concepts.
+  created: '2026-05-02'
+  modified: '2026-05-02'
+  terms:
+    - term: Score
+      definition: >-
+        An open-source, CNCF Sandbox project providing a platform-agnostic workload
+        specification that enables developers to define applications once in score.yaml
+        and deploy to any container platform without environment-specific configuration.
+      tags:
+        - Project
+        - Specification
+
+    - term: score.yaml
+      definition: >-
+        The core Score specification file that developers maintain. Contains workload
+        metadata, container definitions, service port exposure, and resource dependencies.
+        A single score.yaml file replaces environment-specific Docker Compose files,
+        Kubernetes manifests, and other platform configurations.
+      tags:
+        - Core Concept
+        - File Format
+
+    - term: Workload
+      definition: >-
+        In Score terminology, a workload is a container-based application unit with its
+        containers, service ports, and resource dependencies. Score workloads map to
+        Docker Compose services or Kubernetes Deployments in target platforms.
+      tags:
+        - Core Concept
+        - Architecture
+
+    - term: Score Implementation
+      definition: >-
+        A CLI tool that translates a score.yaml file into platform-specific configuration.
+        Reference implementations include score-compose (Docker Compose) and
+        score-k8s (Kubernetes). Third parties can build additional implementations.
+      tags:
+        - Tooling
+        - CLI
+
+    - term: score-compose
+      definition: >-
+        The reference Score implementation for Docker Compose. Translates score.yaml
+        into a docker-compose.yml file suitable for local development. Part of the
+        score-spec GitHub organization.
+      tags:
+        - CLI
+        - Docker
+        - Local Development
+
+    - term: score-k8s
+      definition: >-
+        The reference Score implementation for Kubernetes. Translates score.yaml into
+        Kubernetes manifests including Deployments, Services, ConfigMaps, and Secrets.
+        Part of the score-spec GitHub organization.
+      tags:
+        - CLI
+        - Kubernetes
+        - Production
+
+    - term: score-go
+      definition: >-
+        A Go library for parsing and loading Score specification files. Used by
+        Score implementation authors to build new platform-specific implementations.
+      tags:
+        - Library
+        - Go
+        - Tooling
+
+    - term: Resource Provisioner
+      definition: >-
+        A component within a Score implementation that knows how to create or reference
+        a specific type of dependency (e.g., a postgres database, redis cache, or
+        S3 bucket). Provisioners are implementation-specific and platform-aware.
+      tags:
+        - Core Concept
+        - Resources
+
+    - term: Resource Type
+      definition: >-
+        The abstract type of a workload dependency declared in the Score resources
+        section (e.g., postgres, redis, mongodb, s3, volume). The implementation
+        decides how to resolve each resource type for its target platform.
+      tags:
+        - Core Concept
+        - Resources
+
+    - term: Placeholder
+      definition: >-
+        A runtime reference in Score using ${...} syntax that is replaced by the
+        implementation. Supports metadata references (${metadata.name}) and resource
+        output references (${resources.db.connection_string}).
+      tags:
+        - Syntax
+        - Technical
+
+    - term: Config Drift
+      definition: >-
+        The problem Score is designed to solve: when application configuration
+        diverges across environments (development, staging, production) causing
+        bugs that only appear in certain environments.
+      tags:
+        - Problem Domain
+        - Motivation
+
+    - term: Platform-Agnostic
+      definition: >-
+        Score's key design principle: the score.yaml specification is not tied to any
+        specific infrastructure platform. The same file works with Docker Compose,
+        Kubernetes, Helm, Cloud Run, and other targets.
+      tags:
+        - Design Principle
+        - Core Value
+
+    - term: CNCF Sandbox
+      definition: >-
+        The Cloud Native Computing Foundation's Sandbox tier for early-stage projects.
+        Score joined CNCF as a Sandbox project, indicating community interest and
+        a path toward incubation and graduation.
+      tags:
+        - Governance
+        - CNCF
+
+    - term: Patch Template
+      definition: >-
+        A score-k8s feature allowing operators to override or customize generated
+        Kubernetes manifests by applying JSON Merge Patch or Strategic Merge Patch
+        on top of the Score-generated output.
+      tags:
+        - score-k8s
+        - Kubernetes
+        - Customization
+
+    - term: Cognitive Load
+      definition: >-
+        The mental effort required of developers to manage platform-specific configuration.
+        Reducing cognitive load is Score's primary value proposition — developers declare
+        what they need; platforms decide how to provide it.
+      tags:
+        - Design Philosophy
+        - Developer Experience
+
+    - term: YAML Bloat
+      definition: >-
+        The proliferation of environment-specific YAML files that developers must
+        maintain for each deployment target. Score reduces YAML bloat by providing
+        a single workload definition file.
+      tags:
+        - Problem Domain
+        - Motivation
+
+    - term: Community Provisioners
+      definition: >-
+        A community-driven library of score-compose and score-k8s provisioners for
+        common resource types, available at github.com/score-spec/community-provisioners.
+      tags:
+        - Community
+        - Resources
