@@ -47,7 +47,7 @@ apis:
         url: https://docs.score.dev/
       - type: Specification
         url: https://docs.score.dev/docs/score-specification/score-spec-reference/
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/score-spec/spec
       - type: Vocabulary
         url: https://raw.githubusercontent.com/api-evangelist/score/refs/heads/main/vocabulary/score-vocabulary.yml
@@ -71,7 +71,7 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.score.dev/docs/score-implementation/score-compose/
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/score-spec/score-compose
   - aid: score:score-k8s
     name: score-k8s
@@ -91,12 +91,12 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.score.dev/docs/score-implementation/score-k8s/
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/score-spec/score-k8s
 common:
   - type: Website
     url: https://score.dev/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/score-spec
   - type: Documentation
     url: https://docs.score.dev/
