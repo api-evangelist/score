@@ -94,6 +94,8 @@ apis:
       - type: GitHubRepository
         url: https://github.com/score-spec/score-k8s
 common:
+  - type: DomainSecurity
+    url: security/score-domain-security.yml
   - type: Website
     url: https://score.dev/
   - type: GitHubOrganization
@@ -106,6 +108,8 @@ common:
     url: https://raw.githubusercontent.com/api-evangelist/score/refs/heads/main/json-ld/score-context.jsonld
   - type: Vocabulary
     url: https://raw.githubusercontent.com/api-evangelist/score/refs/heads/main/vocabulary/score-vocabulary.yml
+  - url: https://score.dev/index.xml
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
