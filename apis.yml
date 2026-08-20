@@ -29,6 +29,15 @@ modified: '2026-05-02'
 specificationVersion: '0.23'
 tags:
   - Platform Engineering
+  - Cloud-Native
+  - CNCF
+  - Workload Specification
+  - Kubernetes
+  - Docker
+  - Developer Experience
+  - Open-Source
+tags_raw:
+  - Platform Engineering
   - Cloud Native
   - CNCF
   - Workload Specification
@@ -50,6 +59,12 @@ apis:
       placeholder syntax.
     humanURL: https://score.dev/
     tags:
+      - Platform Engineering
+      - Workload Specification
+      - Cloud-Native
+      - CNCF
+      - Open-Source
+    tags_raw:
       - Platform Engineering
       - Workload Specification
       - Cloud Native
@@ -97,6 +112,11 @@ apis:
       on Kubernetes.
     humanURL: https://score.dev/
     tags:
+      - Kubernetes
+      - CLI
+      - Platform Engineering
+      - Cloud-Native
+    tags_raw:
       - Kubernetes
       - CLI
       - Platform Engineering
