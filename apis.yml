@@ -47,7 +47,7 @@ tags:
   - Kubernetes
   - Docker
   - Developer Experience
-  - Open-Source
+  - Open Source
 tags_raw:
   - Platform Engineering
   - Cloud Native
@@ -57,6 +57,7 @@ tags_raw:
   - Docker
   - Developer Experience
   - Open Source
+  - Open-Source
 apis:
   - aid: score:score-specification
     name: Score Specification
@@ -75,13 +76,14 @@ apis:
       - Workload Specification
       - Cloud-Native
       - CNCF
-      - Open-Source
+      - Open Source
     tags_raw:
       - Platform Engineering
       - Workload Specification
       - Cloud Native
       - CNCF
       - Open Source
+      - Open-Source
     properties:
       - type: Documentation
         url: https://docs.score.dev/
